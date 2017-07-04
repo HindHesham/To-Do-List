@@ -1,0 +1,36 @@
+<div >
+    <div id="showAllDiv">
+        <input type="checkbox" [(ngModel)]="all" > Show All
+    </div>
+    <div style="width:600px; margin-left:28%; margin-top:50px;">
+        <table class="table">
+        <thead class="thead-default">
+            <tr id="tr">
+            <th>#</th>
+            <th>To-Do</th>
+            <th>Action</th>
+            <th> Done </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of getTodo();let index = index">
+                <th scope="row" id="index">{{index+1}}</th>
+                <th>{{todo.action}}</th>
+                <th [ngSwitch]="todo.done">
+                    <span *ngSwitchCase="true"> Yes </span>
+                    <span *ngSwitchCase="false"> No </span>
+                </th>
+                <!--<td *ngIf ="todo.done" >Yes</td>
+                <td *ngIf ="!todo.done" >NO</td>-->
+                <th>
+                    <input type="checkbox" [(ngModel)]="todo.done">
+                </th>
+                <th>
+                    <button type="button"  class="btn btn-danger" (click)="removeTodo(index)">remove</button> 
+            
+                </th>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>

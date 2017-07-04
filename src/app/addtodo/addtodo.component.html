@@ -1,0 +1,21 @@
+<div class="row" style="margin-left:39%; margin-top:50px;">
+<div class="col-lg-5">
+  <div style="float:right; margin-left: -60px;">
+    <div style="float:left;">
+    <input type="text" id="input" class="form-control" placeholder="Your Task" name="newTodo" [(ngModel)]="textTodo" #newTodo="ngModel" required minlength="5"/>
+      <div *ngIf="newTodo.errors && (newTodo.dirty || newTodo.touched)">
+                <div  class="alert alert-danger" [hidden]="!newTodo.errors.minlength">
+                new todo must be at least 5 charachters
+                </div>
+            </div>
+        <div *ngIf="(!newTodo.dirty)" >
+          <div class="test">
+          </div>
+        </div>
+    </div>
+    <div class="input-group-btn"  style="float:left;">   
+    <button type="button" class="btn btn-primary" (click)="addTodo(newTodo.value)">Add To-Do</button>
+    </div>
+  </div>
+</div>
+</div>
